@@ -20,7 +20,12 @@ public:
 	No(T o, int i);
 	No(int i);
 	
-	// comparadores...
+	bool operator== (const No<T> &n);
+	bool operator> (const No<T> &n);
+	bool operator< (const No<T> &n);
+	bool operator<= (const No<T> &n);
+	bool operator>= (const No<T> &n);
+	bool operator!= (const No<T> &n);
 
 };
 
@@ -33,6 +38,36 @@ No<T>::No(T o, int i){
 template<typename T>
 No<T>::No(int i){
 	this->i = i;
+}
+
+template<typename T>
+bool No<T>::operator== (const No<T> &n){
+	return n.i == i;
+}
+
+template<typename T>
+bool No<T>::operator> (const No<T> &n){
+	return n.i > i;
+}
+
+template<typename T>
+bool No<T>::operator< (const No<T> &n){
+	return n.i < i;
+}
+
+template<typename T>
+bool No<T>::operator<= (const No<T> &n){
+	return n == this || n < this;
+}
+
+template<typename T>
+bool No<T>::operator>= (const No<T> &n){
+	return n == this || n > this;
+}
+
+template<typename T>
+bool No<T>::operator!= (const No<T> &n){
+	return !(n.i == i );
 }
 
 #endif //NO

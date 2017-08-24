@@ -15,7 +15,7 @@ class Vetor{
 	Vetor(T t0);
 	~Vetor();
 	void set(unsigned int i, T o);
-	T* get(unsigned int i);
+	T get(unsigned int i);
 
  private:
 	T default0;
@@ -48,14 +48,16 @@ void Vetor<T>::set(unsigned int i, T o){
 }
 
 template<typename T>
-T* Vetor<T>::get(unsigned int i){
+T Vetor<T>::get(unsigned int i){
 	No<T> n = No<T>(i);
-	No<T>* ng = arv.get(n)->info;
+	No<T> ng = arv.get(n);
 	
-	if (ng != NULL)
-		return &(ng->info);
+	No<T> n0 = 0;
 	
-	return NULL;
+	if (ng != n0)
+		return ng.info;
+	
+	return default0;
 }
 
 #endif // VETOR
