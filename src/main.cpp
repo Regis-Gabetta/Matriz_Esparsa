@@ -1,11 +1,11 @@
-// MatrizMaligna.cpp : Defines the entry point for the console application.
-//
+#include "Vetor.h"
 
-#include "stdafx.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <iostream>
+#include <string>
 
-
-int main()
-{
+int main(){
     return 0;
 }
 

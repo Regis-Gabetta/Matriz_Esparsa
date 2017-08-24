@@ -11,13 +11,28 @@
 using namespace std;
 
 template<typename T>
-class Node{
+class No{
 
 public:
 	T info;
 	unsigned int i;
 	
+	No(T o, int i);
+	No(int i);
+	
 	// comparadores...
 
 };
+
+template<typename T>
+No<T>::No(T o, int i){
+	info = o;
+	this->i = i;
+}
+
+template<typename T>
+No<T>::No(int i){
+	this->i = i;
+}
+
 #endif //NO
