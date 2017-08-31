@@ -16,11 +16,12 @@ class Matriz{
 	~Matriz();
 	Vetor<T>* get(unsigned int i);
 	
-	Vetor<T>* operator [](unsigned int i);
+	Vetor<T> & operator [](unsigned int i);
 
  private:
 	T default0;
 	Vetor< Vetor<T>* > vetor;
+	Vetor<T>* temp;
 };
 
 
@@ -49,8 +50,9 @@ Vetor<T>* Matriz<T>::get(unsigned int i) {
 }
 
 template<typename T>
-Vetor<T>* Matriz<T>::operator [](unsigned int i){
-	return (get(i));
+Vetor<T> & Matriz<T>::operator [](unsigned int i){
+	temp = get(i);
+	return *temp;
 }
 
 #endif // MATRIZ

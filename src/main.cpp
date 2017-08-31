@@ -15,9 +15,11 @@ int main(){
 	v->set(0, 4);
 	
 	m.get(10)->set(4, 777);
-	m[10]->set(5, 99);
+	m[10].set(5, 99);
 	
-	int i = (*m[10])[5];
+	m[7][7] = 123;
+	
+	int i = m[7][7];
 	cout << i;
 	
   return 0;

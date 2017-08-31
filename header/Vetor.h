@@ -20,11 +20,12 @@ class Vetor{
 	T get(unsigned int i) const;
 
 	T operator [](unsigned int  i) const;
-  T operator [](unsigned int  i);
+  T & operator [](unsigned int  i);
 	
  private:
 	T default0;
 	Arvore<No <T> > arv;
+	T temp;
 };
 
 
@@ -75,8 +76,9 @@ T Vetor<T>::operator [](unsigned int i) const{
 }
 
 template<typename T>
-T Vetor<T>::operator [](unsigned int i){
-	return this->get(i);
+T & Vetor<T>::operator [](unsigned int i){
+	temp = this->get(i);
+	return temp;
 }
 
 #endif // VETOR
