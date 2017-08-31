@@ -13,19 +13,20 @@ class Matriz{
  public:
 	Matriz(T t0);
 	~Matriz();
-	void set(unsigned int i, unsigned int j, T o);
 	T get(unsigned int i, unsigned int j);
+	
+	Vetor<T>* operator [](unsigned int i) const;
 
  private:
 	T default0;
-	Vetor< Vetor<T> > vetor;
+	Vetor< Vetor<T>* > vetor;
 };
 
 
 template<typename T>
-Matriz<T>::Matriz(T t0){
-	default0 = t0;
-	vetor = Vetor< Vetor<T> >();
+Matriz<T>::Matriz(T d0){
+	default0 = d0;
+	vetor = Vetor< Vetor<T>* >(NULL);
 }
 
 template<typename T>
@@ -33,11 +34,20 @@ Matriz<T>::~Matriz(){
 }
 
 template<typename T>
-void Matriz<T>::set(unsigned int i, T o){
+T Matriz<T>::get(unsigned int i){
 }
 
 template<typename T>
-T Matriz<T>::get(unsigned int i){
+Vetor<T>* Matriz<T>::operator [](unsigned int i) const{
+	Vetor<T>* vp = this->get(i);
+	
+	if (vp == NULL){
+		Vetor<T>* v = new Vetor<T>(default0);
+		vetor.set(i, v);
+		return v;
+	}
+	
+	return vp;
 }
 
 #endif // MATRIZ

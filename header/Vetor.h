@@ -17,6 +17,9 @@ class Vetor{
 	void set(unsigned int i, T o);
 	T get(unsigned int i);
 
+	T operator [](unsigned int  i) const;
+  T & operator [](unsigned int  i);
+	
  private:
 	T default0;
 	Arvore<No <T> > arv;
@@ -58,6 +61,16 @@ T Vetor<T>::get(unsigned int i){
 		return ng.info;
 	
 	return default0;
+}
+
+template<typename T>
+T Vetor<T>::operator [](unsigned int i) const{
+	return this->get(i);
+}
+
+template<typename T>
+T & Vetor<T>::operator [](unsigned int i){
+	return &(this->get(i));
 }
 
 #endif // VETOR
