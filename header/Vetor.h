@@ -13,8 +13,10 @@ class Vetor{
 
  public:
 	Vetor(T t0);
+	Vetor();
 	~Vetor();
 	void set(unsigned int i, T o);
+	void add(unsigned int i, T o);
 	T get(unsigned int i);
 
 	T operator [](unsigned int  i) const;
@@ -33,6 +35,12 @@ Vetor<T>::Vetor(T t0){
 }
 
 template<typename T>
+Vetor<T>::Vetor() {
+	arv = Arvore<No <T> >();
+}
+
+
+template<typename T>
 Vetor<T>::~Vetor(){
 }
 
@@ -49,6 +57,7 @@ void Vetor<T>::set(unsigned int i, T o){
 		arv.remove(n);
 	}
 }
+
 
 template<typename T>
 T Vetor<T>::get(unsigned int i){
