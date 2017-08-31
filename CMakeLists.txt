@@ -16,6 +16,7 @@ include_directories (
 set (HEADERS
 	header/Arvore.h
 	header/Vetor.h
+	header/Matriz.h
 	header/No.h
 )
 
