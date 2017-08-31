@@ -1,5 +1,6 @@
 #include "Arvore.h"
 #include "Vetor.h"
+#include "Matriz.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -7,15 +8,17 @@
 #include <string>
 
 int main(){
-	Vetor<int> v = Vetor<int>(0);
 	
-	v.set(0, 1);
-	v.set(1, 2);
-	v.set(2, 3);
-	v.set(3, 0);
-	v.set(4, 777);
+	Matriz<int> m = Matriz<int>(0);
 	
-	cout << v.get(4);
+	Vetor<int>* v = m.get(0);
+	v->set(0, 4);
+	
+	m.get(10)->set(4, 777);
+	m[10]->set(5, 99);
+	
+	int i = (*m[10])[5];
+	cout << i;
 	
   return 0;
 }

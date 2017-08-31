@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <iostream>
 #include "Vetor.h"
 
 using namespace std;
@@ -13,9 +14,9 @@ class Matriz{
  public:
 	Matriz(T t0);
 	~Matriz();
-	T get(unsigned int i, unsigned int j);
+	Vetor<T>* get(unsigned int i);
 	
-	Vetor<T>* operator [](unsigned int i) const;
+	Vetor<T>* operator [](unsigned int i);
 
  private:
 	T default0;
@@ -26,7 +27,8 @@ class Matriz{
 template<typename T>
 Matriz<T>::Matriz(T d0){
 	default0 = d0;
-	vetor = Vetor< Vetor<T>* >(NULL);
+	Vetor<T>* dp0 = NULL;
+	vetor = Vetor< Vetor<T>* >(dp0);
 }
 
 template<typename T>
@@ -34,12 +36,8 @@ Matriz<T>::~Matriz(){
 }
 
 template<typename T>
-T Matriz<T>::get(unsigned int i){
-}
-
-template<typename T>
-Vetor<T>* Matriz<T>::operator [](unsigned int i) const{
-	Vetor<T>* vp = this->get(i);
+Vetor<T>* Matriz<T>::get(unsigned int i) {
+	Vetor<T>* vp = vetor.get(i);
 	
 	if (vp == NULL){
 		Vetor<T>* v = new Vetor<T>(default0);
@@ -48,6 +46,11 @@ Vetor<T>* Matriz<T>::operator [](unsigned int i) const{
 	}
 	
 	return vp;
+}
+
+template<typename T>
+Vetor<T>* Matriz<T>::operator [](unsigned int i){
+	return (get(i));
 }
 
 #endif // MATRIZ

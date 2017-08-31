@@ -28,7 +28,7 @@ class Arvore{
   Arvore(const Arvore<T> *a);
   unsigned int getCount() const;
   unsigned int getHeight() const;
-	T get(T o);
+	T get(T o) const;
 
   friend ostream& operator<< (ostream&, const Arvore<T>&);
   friend istream& operator >> (istream&, Arvore<T>&);
@@ -234,7 +234,7 @@ void Arvore<T>::arvore_Destrutor(struct Node *raiz)
 
 
 template<typename T>
-T Arvore<T>::get(T o){
+T Arvore<T>::get(T o) const{
 	Node *no = root;
 	
 	while(no != NULL){
@@ -251,7 +251,8 @@ T Arvore<T>::get(T o){
 	if (no != NULL)
 		return no->info;
 	
-	return 0;
+	T t;
+	return t;
 }
 
 template<typename T>

@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <iostream>
 #include "No.h"
 #include "Arvore.h"
 
@@ -13,12 +14,13 @@ class Vetor{
 
  public:
 	Vetor(T t0);
+	Vetor();
 	~Vetor();
 	void set(unsigned int i, T o);
-	T get(unsigned int i);
+	T get(unsigned int i) const;
 
 	T operator [](unsigned int  i) const;
-  T & operator [](unsigned int  i);
+  T operator [](unsigned int  i);
 	
  private:
 	T default0;
@@ -30,6 +32,10 @@ template<typename T>
 Vetor<T>::Vetor(T t0){
 	default0 = t0;
 	arv = Arvore<No <T> >();
+}
+
+template<typename T>
+Vetor<T>::Vetor(){
 }
 
 template<typename T>
@@ -51,11 +57,11 @@ void Vetor<T>::set(unsigned int i, T o){
 }
 
 template<typename T>
-T Vetor<T>::get(unsigned int i){
+T Vetor<T>::get(unsigned int i) const {
 	No<T> n = No<T>(i);
 	No<T> ng = arv.get(n);
 	
-	No<T> n0 = 0;
+	No<T> n0 = No<T>(-1);
 	
 	if (ng != n0)
 		return ng.info;
@@ -69,8 +75,8 @@ T Vetor<T>::operator [](unsigned int i) const{
 }
 
 template<typename T>
-T & Vetor<T>::operator [](unsigned int i){
-	return &(this->get(i));
+T Vetor<T>::operator [](unsigned int i){
+	return this->get(i);
 }
 
 #endif // VETOR

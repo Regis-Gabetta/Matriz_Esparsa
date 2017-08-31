@@ -19,6 +19,7 @@ public:
 	
 	No(T o, int i);
 	No(int i);
+	No();
 	
 	bool operator== (const No<T> &n);
 	bool operator> (const No<T> &n);
@@ -38,6 +39,11 @@ No<T>::No(T o, int i){
 template<typename T>
 No<T>::No(int i){
 	this->i = i;
+}
+
+template<typename T>
+No<T>::No(){
+	this->i = -1;
 }
 
 template<typename T>
