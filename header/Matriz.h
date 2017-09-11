@@ -57,7 +57,6 @@ Vetor<T> & Matriz<T>::operator [](unsigned int i) {
 	if (temp->getCol() != -1 && linAnt != -1)
 		this->get(linAnt)->set(temp->getCol(),temp->getTemp());
 	temp = get(i);
-	buf->setLin(i);
 	linAnt = i;
 	return *temp;
 }
